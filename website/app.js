@@ -2,7 +2,7 @@
 let baseURL = "https://api.openweathermap.org/data/2.5/weather?zip=";
 const apiKey = "8f080650ee0acad011f33a6e59ea2c86";
 let d = new Date();
-let newDate = d.getDay() + "/" + d.getDate() + "/" + d.getFullYear();
+let newDate = (d.getMonth()+1) + "/" + d.getDate() + "/" + d.getFullYear();
 
 //add click Event listener to generate button
 document.getElementById("generate").addEventListener("click", generateData);
@@ -57,7 +57,7 @@ const updateUI = async () => {
     const data = await req.json();
     document.getElementById("date").textContent = `The Date Is: ${data.date}`;
     document.getElementById("content").textContent = `Your Feeling Is: ${data.feeling} :)`;
-    document.getElementById("temp").textContent = `The Tempreture Is: ${data.temp} Degree`;
+    document.getElementById("temp").textContent = `The Tempreture Is: ${data.temp}`;
   } catch (error) {
     console.log("error", error);
   }
